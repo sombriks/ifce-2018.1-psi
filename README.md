@@ -40,7 +40,7 @@ Imaginamos usar de versionamento, boards, integração contínua e coisas do tip
 ## Equipe
 
 - Átila Bastos
-- Emanuel
+- Emanuel Lucas
 - João Adalberto
 - Leonardo Silveira
 - Lucas Tavares
