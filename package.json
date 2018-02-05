@@ -1,0 +1,26 @@
+{
+  "name": "ifce-2018.1-psi",
+  "version": "1.0.0",
+  "description": "Repositório do projeto da cadeira de psi",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "budo src/main.js:build.js -o -l"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sombriks@github.com/sombriks/ifce-2018.1-psi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sombriks/ifce-2018.1-psi/issues"
+  },
+  "homepage": "https://github.com/sombriks/ifce-2018.1-psi#readme",
+  "devDependencies": {
+    "budo": "^11.1.0"
+  }
+}
