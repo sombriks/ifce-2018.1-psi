@@ -31,7 +31,7 @@
 
 ### Especialista UX
 
-**LUCAS, Emanuel**: *inventar mini-cv*
+**LUCAS, Emanuel**: Engenheiro Front-end e Especialista UX, com experiência como Diretor de Arte. Fluente em frameworks Javascript como Angular (1.x e 2.x) e Vue.js
 
 
 ### Demais recursos de projeto
