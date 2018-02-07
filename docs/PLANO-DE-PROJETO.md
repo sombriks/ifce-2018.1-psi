@@ -16,7 +16,7 @@
 
 ### Gerente de Projeto
 
-**TAVARES, Lucas**: Atuo na gestão e desenvolvimento de sistemas de informação como Gerentes de Projetos nas mais diversas empresas. Possuo as certificações internacionais em gerenciamento de projetos e produtos PMP, PSM I, PSPO I, SFC, além de especialização em gerenciamento de projetos de TI e bacharelado em ciências da computação pela UECE. 
+**TAVARES, Lucas**: Atuo na gestão e desenvolvimento de sistemas de informação como Gerente de Projetos nas mais diversas empresas. Possuo as certificações internacionais em gerenciamento de projetos e produtos PMP, PSM I, PSPO I, SFC, além de especialização em gerenciamento de projetos de TI e bacharelado em ciências da computação pela UECE. 
 
 
 ### Programador Sênior
@@ -26,8 +26,7 @@
 
 ### Analista de Negócio / P.O.
 
-**BASTOS, Átila**: *inventar mini-cv*
-
+**BASTOS, Átila**: 
 
 ### Especialista UX
 
