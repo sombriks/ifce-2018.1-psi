@@ -1,8 +1,12 @@
-# Plano de projeto do sistema *Adote um Bixo*
+# Plano de projeto do sistema *Find my Pet*
 
 ## Prefácio
 
 ## Índice
+
+## Objetivo
+
+### Escopo
 
 ## Motivação
 
@@ -10,10 +14,62 @@
 
 ## Corpo técnico
 
+### Gerente de Projeto
+
+**TAVARES, Lucas**: *inventar mini-cv*
+
+
+### Programador Sênior
+
+**ADALBERTO, João**: *inventar mini-cv*
+
+
+### Analista de Negócio / P.O.
+
+**BASTOS, Átila**: *inventar mini-cv*
+
+
+### Especialista UX
+
+**LUCAS, Emanuel**: *inventar mini-cv*
+
+
+### Demais recursos de projeto
+
+**SILVEIRA, Leonardo**: *inventar mini-cv*
+
+
 ## Plano de comunicação
+
+- *Grupo do Telegram*
+- email do gerente
+- telefone do gerente
+- email do analista de neg
+- telefone do analista de neg
 
 ## Cronograma inicial
 
+- ~~2018-01-29: Kick-off de projeto~~
+- 2018-02-19: Aceite do plano de projeto
+- 2018-02-21: Definição do backlog inicial
+- 2018-02-26: Início da primeira sprint
+- 2018-03-12: Início da segunda sprint
+- 2018-03-26: Início da terceira sprint
+- 2018-04-11: Início da quarta sprint
+- 2018-04-25: Início da quinta sprint
+- 2018-05-02: Início da sexta sprint
+- 2018-05-16: Início da sétima sprint
+- 2018-05-30: Início da outava sprint
+- 2018-06-08: Termo de encerramento de projeto
+
 ## Plano de custos
+
+- Administrativo/Pessoal
+- Infraestrutura
+  - Servidores
+  - Salas
+  - Insumos
+
+## Custo total de 6 meses de projeto
 
 ## Considerações finais
