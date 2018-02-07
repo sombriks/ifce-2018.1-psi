@@ -1,5 +1,7 @@
 # ifce-2018.1-psi
 
+[![HitCount](http://hits.dwyl.io/sombriks/ifce-2018.1-psi.svg)](http://hits.dwyl.io/sombriks/ifce-2018.1-psi)
+
 Repositório do projeto da cadeira de psi
 
 ## Sobre este repositório
