@@ -23,6 +23,9 @@ por comodidade.
 Não devemos esquecer que a solução feita deverá ser apresentada e defendida no
 encerramento da disciplina.
 
+A documentação pode ser encontrada online 
+[aqui](https://sombriks.github.io/ifce-2018.1-psi/).
+
 ## Sobre o projeto
 
 Uma aplicativo web para facilitar a identificação e possível adoção de animais
@@ -37,10 +40,5 @@ Imaginamos usar de versionamento, boards, integração contínua e coisas do tip
 - 2018-02-19: Primeira versão do plano de projeto
 - TBD
 
-## Equipe
 
-- Átila Bastos
-- Emanuel Lucas
-- João Adalberto
-- Leonardo Silveira
-- Lucas Tavares
+
