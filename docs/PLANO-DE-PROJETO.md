@@ -26,7 +26,7 @@
 
 ### Analista de Negócio / P.O.
 
-**BASTOS, Átila**: 
+**BASTOS, Átila**: Possui graduação em Engenharia de Computação pelo Instituto Federal do Ceará, e especialização em Engenharia de Software pela Universidade Estácio de Sá. Tem experiência na área de Engenharia de Software, com ênfase em levantamento e análise de requisitos e gestão de projetos, além de certificados COBIT 4.1, ITIL V3, SCRUM, PMP.
 
 ### Especialista UX
 
