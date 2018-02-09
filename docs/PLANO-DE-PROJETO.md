@@ -21,7 +21,11 @@
 
 ### Programador Sênior
 
-**ADALBERTO, João**: *inventar mini-cv*
+**ADALBERTO, João**: Eu gosto muito de programar coisas que sejam úteis para o trabalho das pessoas.Sou profissional, dedicado e confiável.
+Educação : Graduação Em Engenharia da Computação
+Habilidades: Auto-motivação, habilidades de comunicação superiores e uma grande atitude de jogador de equipe.
+Php,MySQL,HTML5,CSS,Pearl.
+Experiencia: 10 anos em firmas e estudios de design como progamador web.
 
 
 ### Analista de Negócio / P.O.
