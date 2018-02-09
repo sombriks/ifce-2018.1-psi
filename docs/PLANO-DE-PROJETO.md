@@ -25,7 +25,7 @@
 Educação : Graduação Em Engenharia da Computação
 Habilidades: Auto-motivação, habilidades de comunicação superiores e uma grande atitude de jogador de equipe.
 Php,MySQL,HTML5,CSS,Pearl.
-Experiencia: 10 anos em firmas e estudios de design como progamador web.
+Experiencia: 10 anos em firmas e estudios de design como programador web.
 
 
 ### Analista de Negócio / P.O.
