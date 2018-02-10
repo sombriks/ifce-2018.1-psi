@@ -16,8 +16,7 @@
 
 ### Gerente de Projeto
 
-**TAVARES, Lucas**: Atuo na gestão e desenvolvimento de sistemas de informação como Gerente de Projetos nas mais diversas empresas. Possuo as certificações internacionais em gerenciamento de projetos e produtos PMP, PSM I, PSPO I, SFC, além de especialização em gerenciamento de projetos de TI e bacharelado em ciências da computação pela UECE. 
-
+**TAVARES, Lucas**: Atuo na gestão e desenvolvimento de sistemas de informação como Gerente de Projetos nas mais diversas empresas. Possuo as certificações internacionais em gerenciamento de projetos e produtos PMP, PSM I, PSPO I, SFC, além de especialização em gerenciamento de projetos de TI e bacharelado em ciências da computação pela UECE.
 
 ### Programador Sênior
 
@@ -27,8 +26,7 @@ Habilidades: Auto-motivação, habilidades de comunicação superiores e uma gra
 Php,MySQL,HTML5,CSS,Pearl.
 Experiencia: 10 anos em firmas e estudios de design como programador web.
 
-
-### Analista de Negócio / P.O.
+### Analista de Negócio / Product Owner
 
 **BASTOS, Átila**: Possui graduação em Engenharia de Computação pelo Instituto Federal do Ceará, e especialização em Engenharia de Software pela Universidade Estácio de Sá. Tem experiência na área de Engenharia de Software, com ênfase em levantamento e análise de requisitos e gestão de projetos, além de certificados COBIT 4.1, ITIL V3, SCRUM, PMP.
 
@@ -36,11 +34,9 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 
 **LUCAS, Emanuel**: Engenheiro Front-end e Especialista UX, com experiência como Diretor de Arte. Fluente em frameworks Javascript como Angular (1.x e 2.x) e Vue.js
 
-
 ### Demais recursos de projeto
 
-**SILVEIRA, Leonardo**: *inventar mini-cv*
-
+**SILVEIRA, Leonardo**: Estudante de computação no IFCE
 
 ## Plano de comunicação
 
