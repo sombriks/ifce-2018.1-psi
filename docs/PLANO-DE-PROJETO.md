@@ -15,7 +15,7 @@ Este documetno pretende desenhar de modo rápido a proposta de execução deste 
 - [Cronograma Inicial](#cronograma-inicial)
 - [Plano de Custos](#plano-de-custos)
 - [Considerações Finais](#considera%C3%A7%C3%B5es-finais)
-- [Referências](#considera%C3%A7%C3%B5es-finais)
+- [Referências](#refer%C3%AAncias)
 
 ## Objetivo
 
