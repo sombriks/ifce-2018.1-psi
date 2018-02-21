@@ -1,1 +1,8 @@
 node_modules
+
+dist/css
+dist/img
+dist/index.html
+dist/build.js
+
+.nyc_output
