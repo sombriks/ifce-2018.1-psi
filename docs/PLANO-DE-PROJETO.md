@@ -2,15 +2,46 @@
 
 ## Prefácio
 
+Este documetno pretende desenhar de modo rápido a proposta de execução deste projeto.
+
 ## Índice
+
+- [Objetivo](#objetivo)
+- [Escopo](#escopo)
+- [Motivação](#motiva%C3%A7%C3%A3o)
+- [Metodologia](#metodologia)
+- [Corpo Técnico](#corpo-t%C3%A9cnico)
+- [Plano de Comunicação](#plano-de-comunica%C3%A7%C3%A3o)
+- [Cronograma Inicial](#cronograma-inicial)
+- [Plano de Custos](#plano-de-custos)
+- [Considerações Finais](#considera%C3%A7%C3%B5es-finais)
 
 ## Objetivo
 
+O sistema *find my pet* permite fazer a ponte de modo rápido e prático entre os animais abandonados e os possíveis candidados a cuidadores destes animais.
+
+O sistema permite ainda que os usuários subam fotos de animais que eles encontrem em estado de abandono para assim divulgar mais rapidamente o estado destes animais.
+
 ### Escopo
+
+É objetivo do projeto:
+
+- Modelar uma base de dados de animais abandonados e usuários
+- Um aplicativo moderno de internet *mobile first*
+- Um sistema de comunicação e notificação móvel
+
+Não é objetivo previsto:
+
+- Coletar doações de qualquer ordem
+- Vender animais ou usuários
 
 ## Motivação
 
+Muita gente se compadece ao ver uma criatura abandonada e nem sempre pode estender ajuda naquele momento. Com estes sistema as pessoas poderão bater uma foto e subir na internet, de modo que suas consiências fiquem mais leves e que outras pessoas de interesse comum em animais abandonados possam não apenas se compadecer da foto do animal, mas também espalhar a imagem pelo mundo de forma mais eficaz.
+
 ## Metodologia
+
+Em cima dos requisitos de backlog a serem criados, atividades cabíveis de execução dentro de 8 sprints serão levantadas e então executadas seguindo os preceitos do manifesto agil e do scrum
 
 ## Corpo técnico
 
@@ -49,7 +80,7 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 ## Cronograma inicial
 
 - ~~2018-01-29: Kick-off de projeto~~
-- 2018-02-19: Aceite do plano de projeto
+- ~~2018-02-19: Aceite do plano de projeto~~
 - 2018-02-21: Definição do backlog inicial
 - 2018-02-26: Início da primeira sprint
 - 2018-03-12: Início da segunda sprint
@@ -58,17 +89,26 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 - 2018-04-25: Início da quinta sprint
 - 2018-05-02: Início da sexta sprint
 - 2018-05-16: Início da sétima sprint
-- 2018-05-30: Início da outava sprint
+- 2018-05-30: Início da oitava sprint
 - 2018-06-08: Termo de encerramento de projeto
 
 ## Plano de custos
 
 - Administrativo/Pessoal
+  - Técnico
+  - Financeiro
+  - Gerencial
 - Infraestrutura
-  - Servidores
+  - Equipamentos 
+    - Macbook Pro x 10
   - Salas
+    - 
+  - Mobília
   - Insumos
+  - Viagens
 
-## Custo total de 6 meses de projeto
+### Custo total de 6 meses de projeto
 
 ## Considerações finais
+
+O projeto *Find My Pet* tem potencial de tornar o mundo um lugar melhor, e o retorno sobre o investimento dele o torna muito interessante para investidores de alto capital e alto risco.
