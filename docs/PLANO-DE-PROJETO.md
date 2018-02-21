@@ -101,34 +101,33 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
     - Analista de experiência de usuário: **R$ 7.000,00 / Mês**
     - Programador: **R$ 6.000,00 / Mês**
     - Estagiário: **R$ 1.500,00 / Mês**
-  - Financeiro
-    - Contador: **R$ 400,00 / Mês**
   - Administrativo
     - Gerente: **R$ 15.000,00 / Mês**
-    - Secretária: **R$ 2.000,00 / Mês**
 - Infraestrutura
   - Equipamentos 
     - Macbook Pro 15" x 10: **R$ 220.000,00**
     - Roteador wifi Archer C5400: **R$ 2.000,00**
-  - Sala
-    - Aluguel: **R$ 3.000,00 / Mês**
+  - Sala (coworking com espaço dedicado + secretarido + financeiro)
+    - Mensalidade: **R$ 3.000,00 / Mês**
     - Condomínio: **R$ 1.000,00 / Mês**
     - Conta de luz: **R$ 400,00 / Mês**
     - Conta de internet: **R$ 400,00 / Mês**
-  - Mobília: **R$ 16.000,00**
   - Insumos
     - Café: **R$ 100,00 / Mês**
     - Papel A4: **R$ 100,00 / Mês**
     - Insumos de escritório (caneta, durex, grampeador, grampos): **R$ 100,00 / Mês**
 - Serviços contratados
-  - Serviço de limpeza: **R$ 2.000,00 / Mês**
   - Amazon: **R$ 1.000,00 / Mês**
-  - Facebook workplace: **USD 30,00 / Mês**
 - Marketing: **R$ 10.000,00**
 - Viagens: Não há
 
 ### Expectativa de custo de 6 meses de projeto
 
+| Resumo                  | Valor                 |
+|-------------------------|-----------------------|
+| Custo fixo              |      R$ 232.000,00    |
+| Custo mensal            |      R$  43.600,00    |
+| Custo total de 6 meses  |    **R$ 493.600,00**  |
 
 ## Considerações finais
 
@@ -136,4 +135,6 @@ O projeto *Find My Pet* tem potencial de tornar o mundo um lugar melhor, e o ret
 
 ## Referências
 
-[scrum](http://www.desenvolvimentoagil.com.br/scrum/)
+- [scrum](http://www.desenvolvimentoagil.com.br/scrum/)
+- [mackbook](https://www.apple.com/br/shop/buy-mac/macbook-pro/15-polegadas)
+- [roteador](https://www.tp-link.com/pt/products/details/cat-9_Archer-C5400.html)
