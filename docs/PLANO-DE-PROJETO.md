@@ -15,6 +15,7 @@ Este documetno pretende desenhar de modo rápido a proposta de execução deste 
 - [Cronograma Inicial](#cronograma-inicial)
 - [Plano de Custos](#plano-de-custos)
 - [Considerações Finais](#considera%C3%A7%C3%B5es-finais)
+- [Referências](#considera%C3%A7%C3%B5es-finais)
 
 ## Objetivo
 
@@ -96,19 +97,43 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 
 - Administrativo/Pessoal
   - Técnico
+    - Analista de negócio: **R$ 8.000,00 / Mês**
+    - Analista de experiência de usuário: **R$ 7.000,00 / Mês**
+    - Programador: **R$ 6.000,00 / Mês**
+    - Estagiário: **R$ 1.500,00 / Mês**
   - Financeiro
-  - Gerencial
+    - Contador: **R$ 400,00 / Mês**
+  - Administrativo
+    - Gerente: **R$ 15.000,00 / Mês**
+    - Secretária: **R$ 2.000,00 / Mês**
 - Infraestrutura
   - Equipamentos 
-    - Macbook Pro x 10
-  - Salas
-    - 
-  - Mobília
+    - Macbook Pro 15" x 10: **R$ 220.000,00**
+    - Roteador wifi Archer C5400: **R$ 2.000,00**
+  - Sala
+    - Aluguel: **R$ 3.000,00 / Mês**
+    - Condomínio: **R$ 1.000,00 / Mês**
+    - Conta de luz: **R$ 400,00 / Mês**
+    - Conta de internet: **R$ 400,00 / Mês**
+  - Mobília: **R$ 16.000,00**
   - Insumos
-  - Viagens
+    - Café: **R$ 100,00 / Mês**
+    - Papel A4: **R$ 100,00 / Mês**
+    - Insumos de escritório (caneta, durex, grampeador, grampos): **R$ 100,00 / Mês**
+- Serviços contratados
+  - Serviço de limpeza: **R$ 2.000,00 / Mês**
+  - Amazon: **R$ 1.000,00 / Mês**
+  - Facebook workplace: **USD 30,00 / Mês**
+- Marketing: **R$ 10.000,00**
+- Viagens: Não há
 
-### Custo total de 6 meses de projeto
+### Expectativa de custo de 6 meses de projeto
+
 
 ## Considerações finais
 
 O projeto *Find My Pet* tem potencial de tornar o mundo um lugar melhor, e o retorno sobre o investimento dele o torna muito interessante para investidores de alto capital e alto risco.
+
+## Referências
+
+[scrum](http://www.desenvolvimentoagil.com.br/scrum/)
