@@ -31,6 +31,7 @@
     "chai": "^4.1.2",
     "cross-env": "^5.1.3",
     "envify": "^4.1.0",
+    "firebase-tools": "^3.17.4",
     "make": "^0.8.1",
     "mocha": "^5.0.1",
     "nyc": "^11.4.1",
@@ -38,6 +39,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "firebase": "^4.10.1",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1"
   },

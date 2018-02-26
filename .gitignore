@@ -1,8 +1,8 @@
 node_modules
 
-dist/css
-dist/img
-dist/index.html
-dist/build.js
+dist/public/css
+dist/public/img
+dist/public/index.html
+dist/public/build.js
 
 .nyc_output
