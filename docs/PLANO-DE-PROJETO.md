@@ -1,21 +1,8 @@
-# Plano de projeto do sistema *Find my Pet*
+# Plano de projeto do sistema *Find My Pet*
 
 ## Prefácio
 
 Este documetno pretende desenhar de modo rápido a proposta de execução deste projeto.
-
-## Índice
-
-- [Objetivo](#objetivo)
-- [Escopo](#escopo)
-- [Motivação](#motiva%C3%A7%C3%A3o)
-- [Metodologia](#metodologia)
-- [Corpo Técnico](#corpo-t%C3%A9cnico)
-- [Plano de Comunicação](#plano-de-comunica%C3%A7%C3%A3o)
-- [Cronograma Inicial](#cronograma-inicial)
-- [Plano de Custos](#plano-de-custos)
-- [Considerações Finais](#considera%C3%A7%C3%B5es-finais)
-- [Referências](#refer%C3%AAncias)
 
 ## Objetivo
 
@@ -73,25 +60,28 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 ## Plano de comunicação
 
 - *Grupo do Telegram*
-- email do gerente
-- telefone do gerente
-- email do analista de neg
-- telefone do analista de neg
+- *email do gerente*
+- *telefone do gerente*
+- *email do analista de neg*
+- *telefone do analista de neg*
+- [issues no projeto do github](https://github.com/sombriks/ifce-2018.1-psi/issues)
 
 ## Cronograma inicial
 
-- ~~2018-01-29: Kick-off de projeto~~
-- ~~2018-02-19: Aceite do plano de projeto~~
-- 2018-02-21: Definição do backlog inicial
-- 2018-02-26: Início da primeira sprint
-- 2018-03-12: Início da segunda sprint
-- 2018-03-26: Início da terceira sprint
-- 2018-04-11: Início da quarta sprint
-- 2018-04-25: Início da quinta sprint
-- 2018-05-02: Início da sexta sprint
-- 2018-05-16: Início da sétima sprint
-- 2018-05-30: Início da oitava sprint
-- 2018-06-08: Termo de encerramento de projeto
+| Data       | Marco                            | Entregável        | Realizado |
+|------------|----------------------------------|-------------------|-----------|
+| 2018-01-29 | Kick-off de projeto              | -                 |    ok     |
+| 2018-02-19 | Aceite do plano de projeto       | *este documento*  |    ok     |
+| 2018-02-21 | Definição do backlog inicial     | *issues repo git* |    ok     |
+| 2018-02-26 | Início da primeira sprint        | *modelo ER*       |           |
+| 2018-03-12 | Início da segunda sprint         | *lista anuncios*  |           |
+| 2018-03-26 | Início da terceira sprint        | *comentarios*     |           |
+| 2018-04-11 | Início da quarta sprint          | *a definir*       |           |
+| 2018-04-25 | Início da quinta sprint          | *a definir*       |           |
+| 2018-05-02 | Início da sexta sprint           | *a definir*       |           |
+| 2018-05-16 | Início da sétima sprint          | *a definir*       |           |
+| 2018-05-30 | Início da oitava sprint          | *a definir*       |           |
+| 2018-06-08 | Termo de encerramento de projeto | -                 |           |
 
 ## Plano de custos
 
@@ -128,6 +118,17 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 | Custo fixo              |      R$ 232.000,00    |
 | Custo mensal            |      R$  43.600,00    |
 | Custo total de 6 meses  |    **R$ 493.600,00**  |
+
+### Cronograma de investimento (6 meses)
+
+| Competência | Valor         | Descrição                                  |
+|-------------|---------------|--------------------------------------------|
+| 2018-02     | R$ 222.000,00 | Compra de equipamentos                     |
+| 2018-03     | R$  43.600,00 | Folha pessoal e demais serviços            | 
+| 2018-04     | R$  43.600,00 | Folha pessoal e demais serviços            |
+| 2018-05     | R$  43.600,00 | Folha pessoal e demais serviços            |
+| 2018-06     | R$  43.600,00 | Folha pessoal e demais serviços            |
+| 2018-07     | R$  53.600,00 | Marketing, folha pessoal e demais serviços |
 
 ## Considerações finais
 
