@@ -23,7 +23,7 @@
     <script src="https://unpkg.com/docute@3/dist/docute.js"></script>
     <script>
       docute.init({
-        mode:"history",
+        url: docute.isDev ? location.origin : 'https://github.com/sombriks/ifce-2018.1-psi/tree/master/docs',
         nav: [
           { title: "Início", path: "/" },
           { title: "Plano de Projeto", path: "/PLANO-DE-PROJETO" },
