@@ -18,7 +18,7 @@
   - Leonardo Silveira
   - Lucas Tavares
 
-O [plano de projeto](/PLANO-DE-PROJETO) apresentará nossa proposta de 
+O plano de projeto apresentará nossa proposta de 
 realização para o problema proposto dentro do prazo estipulado.
 
 Temos como data *cick-off* o início do semestre e data para o termo de 
@@ -29,4 +29,4 @@ diagrama de custos mais dedicado a exemplificar do que apontar com exatidão,
 posto que usaremos a maior quantidde possível de soluções livres de custo
 para não onerarmos a equipe e nem os professores.
 
-Daqui pra frente, o que vale é o [plano de projeto](/PLANO-DE-PROJETO).
+Daqui pra frente, o que vale é o plano de projeto.
