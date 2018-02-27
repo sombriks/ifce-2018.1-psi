@@ -9,6 +9,7 @@
   "scripts": {
     "docs": "docute -o -w ./docs",
     "test": "make test",
+    "clean": "make clean",
     "dev": "make dev",
     "build": "make build",
     "release": "make release",
