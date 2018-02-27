@@ -7,7 +7,7 @@ As tecnologias adotadas para este projeto seguem
 - vue
 - vue-router
 - vuetify
-- material-design-icons-iconfont
+- axios
 
 ## Testing
 
