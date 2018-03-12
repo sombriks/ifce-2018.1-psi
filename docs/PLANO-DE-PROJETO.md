@@ -73,7 +73,7 @@ Experiencia: 10 anos em firmas e estudios de design como programador web.
 | 2018-01-29 | Kick-off de projeto              | -                 |    ok     |
 | 2018-02-19 | Aceite do plano de projeto       | *este documento*  |    ok     |
 | 2018-02-21 | Definição do backlog inicial     | *issues repo git* |    ok     |
-| 2018-02-26 | Início da primeira sprint        | *modelo ER*       |           |
+| 2018-02-26 | Início da primeira sprint        | *modelo ER*       |    ok     |
 | 2018-03-12 | Início da segunda sprint         | *lista anuncios*  |           |
 | 2018-03-26 | Início da terceira sprint        | *comentarios*     |           |
 | 2018-04-11 | Início da quarta sprint          | *a definir*       |           |
