@@ -4,6 +4,9 @@
 # please do not use make directly. instead, call npm run <script>, so it will 
 # call the correct make for you
 #
+# also just give up windows. it doesn't work well enve if you try wsl or git 
+# bash or even cygwin
+#
 
 clean:
 	rm -rf dist/public/css
@@ -25,4 +28,3 @@ test:
  
 release: build
 	cd dist ; firebase deploy
-	# TODO adicionar configuração para publicação no google firebase

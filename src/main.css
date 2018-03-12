@@ -2,6 +2,7 @@
 
 @import "../css/material-icons.css";
 @import "../css/roboto.css";
+@import "../node_modules/vuetify/dist/vuetify.min.css";
 
 html {
   font-family: Roboto;
