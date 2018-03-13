@@ -1,4 +1,7 @@
 <template>
+  <div>
+    Detalhe
+  </div>
   
 </template>
 

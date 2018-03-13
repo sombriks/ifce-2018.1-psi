@@ -1,4 +1,7 @@
 <template>
+  <div>
+    Novo
+  </div>
   
 </template>
 

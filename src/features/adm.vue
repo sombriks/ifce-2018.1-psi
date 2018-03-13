@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    Adm
+  </div>
 </template>
 
 <script>

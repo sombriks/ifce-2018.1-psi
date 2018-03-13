@@ -1,6 +1,5 @@
+// src/main.js
 require("./main.css")
-
-const firebase = require("firebase")
 
 const Vue = require("vue")
 const VueRouter = require("vue-router")
