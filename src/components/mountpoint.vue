@@ -28,6 +28,15 @@
           <v-list-tile-title>Novo anúncio</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
+      <v-divider></v-divider>
+      <v-list-tile href="https://sombriks.github.io/ifce-2018.1-psi/#/" target="projmanagement">
+        <v-list-tile-action>
+          <v-icon>help</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Sobre o Find My Pet</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
     </v-list>
   </v-navigation-drawer>
   <v-toolbar app color="amber">
