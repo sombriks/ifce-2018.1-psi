@@ -9,8 +9,13 @@ const firebaseapp = firebase.initializeApp({
   messagingSenderId: "738747721409"
 });
 const db = firebaseapp.database();
+const appurl = {
+  development: "http://127.0.0.1:9966",
+  production: "https://ifce-2018-1-psi.firebaseapp.com"
+};
 
 module.exports = {
+  signInSuccessUrl: appurl[process.env.NODE_ENV],
   firebaseapp,
   db
 };

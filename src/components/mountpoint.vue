@@ -2,8 +2,17 @@
 <v-app>
   <v-navigation-drawer app v-model="drawer">
     <v-list>
-      
-      <v-list-tile href="#/login">
+      <v-list-tile v-if="user" :href="`#/perfil/${user.uid}`">
+        <v-list-tile-action>
+          <v-avatar>
+            <img :src="user.photoURL"/>
+          </v-avatar>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Olá, {{user.displayName}}!</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile v-if="!user" href="#/login">
         <v-list-tile-action>
           <v-icon>perm_identity</v-icon>
         </v-list-tile-action>
@@ -55,11 +64,18 @@
 </template>
 <script>
 const VueRouter = require("vue-router")
+const { firebaseapp } = require("./config")
 module.exports = {
   name: "MountPoint",
   router: new VueRouter({
     routes: [{ path: "/", redirect: "/lista" }, ...require("./routes")]
   }),
-  data: _ => ({ drawer: false }),
+  data: _ => ({ drawer: false, user: null }),
+  created() {
+    firebaseapp.auth().onAuthStateChanged(user => {
+      // console.log(user)
+      this.user = user
+    })
+  }
 }
 </script>

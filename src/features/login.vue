@@ -6,11 +6,12 @@
 <script>
 const firebase = require("firebase")
 const firebaseui = require("firebaseui")
-const { firebaseapp } = require("../components/config")
+const { firebaseapp, signInSuccessUrl } = require("../components/config")
 module.exports = {
   name: "Login",
   mounted() {
     new firebaseui.auth.AuthUI(firebaseapp.auth()).start(this.$refs["authui"], {
+      signInSuccessUrl,
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
