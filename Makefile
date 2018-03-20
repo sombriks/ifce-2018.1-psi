@@ -21,7 +21,7 @@ build: clean
 	cp index.html dist/public/index.html
 
 dev:
-	cross-env NODE_ENV=development budo src/main.js:build.js -o -l --wg '^dist,^node_modules,**/*.{html,css,js,vue}'
+	cross-env NODE_ENV=development budo src/main.js:build.js -o -l -H 127.0.0.1 --wg '^dist,^node_modules,**/*.{html,css,js,vue}'
 
 test:
 	cross-env NODE_ENV=testing nyc mocha --timeout=20000 --exit

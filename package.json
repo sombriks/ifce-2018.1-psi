@@ -43,6 +43,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "firebase": "^4.10.1",
+    "firebaseui": "^2.6.3",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuefire": "^1.4.5",

@@ -6,3 +6,5 @@ dist/public/index.html
 dist/public/build.js
 
 .nyc_output
+
+package-lock.json

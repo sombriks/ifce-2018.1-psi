@@ -6,7 +6,7 @@
 </template>
 
 <script>
-const { db } = require("../components/database")
+const { db } = require("../components/config")
 module.exports = {
   name: "Lista",
   firebase: {
