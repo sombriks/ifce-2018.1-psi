@@ -39,6 +39,9 @@ module.exports = {
   methods: {
     doSave() {
       if (this.valid) {
+        // https://firebase.google.com/docs/reference/js/firebase.database.Reference#push
+        // https://firebase.google.com/docs/reference/js/firebase.database.Reference#set
+        // https://firebase.google.com/docs/reference/js/firebase.database.Reference#remove
         db.ref("anuncios").push(this.anuncio).then(_ => {
           console.log(_)
           alert("Anúncio salvo com sucesso!")
