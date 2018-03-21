@@ -2,17 +2,17 @@
 <v-app>
   <v-navigation-drawer app v-model="drawer">
     <v-list>
-      <v-list-tile v-if="user" :href="`#/perfil/${user.uid}`">
+      <v-list-tile v-if="currentUser" :href="`#/perfil/${currentUser.uid}`">
         <v-list-tile-action>
           <v-avatar>
-            <img :src="user.photoURL"/>
+            <img :src="currentUser.photoURL"/>
           </v-avatar>
         </v-list-tile-action>
         <v-list-tile-content>
-          <v-list-tile-title>Olá, {{user.displayName}}!</v-list-tile-title>
+          <v-list-tile-title>Olá, {{currentUser.displayName}}!</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile v-if="!user" href="#/login">
+      <v-list-tile v-if="!currentUser" href="#/login">
         <v-list-tile-action>
           <v-icon>perm_identity</v-icon>
         </v-list-tile-action>
@@ -63,6 +63,7 @@
 </v-app>
 </template>
 <script>
+const { mapState } = require("vuex")
 const VueRouter = require("vue-router")
 const { firebaseapp } = require("./config")
 module.exports = {
@@ -70,12 +71,15 @@ module.exports = {
   router: new VueRouter({
     routes: [{ path: "/", redirect: "/lista" }, ...require("./routes")]
   }),
-  data: _ => ({ drawer: false, user: null }),
+  data: _ => ({ drawer: false }),
   created() {
     firebaseapp.auth().onAuthStateChanged(user => {
-      // console.log(user)
-      this.user = user
+      this.$store.commit("setUser", user)
+      console.log(user)
     })
-  }
+  },
+  computed: mapState({
+    currentUser: ({ currentUser }) => currentUser
+  })
 }
 </script>

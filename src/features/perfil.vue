@@ -11,19 +11,20 @@
 </template>
 
 <script>
+const { mapState } = require("vuex")
 const { firebaseapp } = require("../components/config")
 module.exports = {
   name: "Perfil",
-  data: _ => ({ currentUser: null }),
-  created() {
-    this.currentUser = firebaseapp.auth().currentUser // nulo?
-  },
   methods: {
     sair() {
       firebaseapp.auth().signOut()
       window.location.href = "#/"
+      this.$store.commit("setUser", null)
     }
-  }
+  },
+  computed: mapState({
+    currentUser: ({ currentUser }) => currentUser
+  })
 }
 </script>
 
