@@ -1,14 +1,17 @@
-// src/components/store
+// src/components/globalstore.js
 const Vuex = require("vuex");
 
 exports.store = new Vuex.Store({
   state: {
-    currentUser: null
+    currentUser: null,
+    titleSection: "Find My Pet"
   },
   mutations: {
     setUser(state, newUser) {
-      console.log(newUser);
       state.currentUser = newUser;
+    },
+    setTitle(state, title) {
+      state.titleSection = title;
     }
   }
 });

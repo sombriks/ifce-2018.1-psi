@@ -14,6 +14,7 @@ const appurl = {
   production: "https://ifce-2018-1-psi.firebaseapp.com"
 };
 
+// XXX merge do globalstate e do config?
 module.exports = {
   signInSuccessUrl: appurl[process.env.NODE_ENV],
   firebaseapp,

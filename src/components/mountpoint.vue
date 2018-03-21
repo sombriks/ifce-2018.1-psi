@@ -29,7 +29,7 @@
           <v-list-tile-title>Anúncios</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile href="#/novo">
+      <v-list-tile v-if="currentUser" href="#/novo">
         <v-list-tile-action>
           <v-icon>playlist_add</v-icon>
         </v-list-tile-action>
@@ -50,11 +50,15 @@
   </v-navigation-drawer>
   <v-toolbar app color="amber">
      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Find My Pet</v-toolbar-title>
+      <v-toolbar-title>{{titleSection}}</v-toolbar-title>
   </v-toolbar>
   <v-content>
-    <v-container fluid>
-      <router-view></router-view>
+    <v-container grid-list-xs>
+      <v-layout row>
+        <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
+          <router-view></router-view>
+        </v-flex>
+      </v-layout>
     </v-container>
   </v-content>
   <v-footer app color="amber" class="text-xs-right">
@@ -74,12 +78,10 @@ module.exports = {
   data: _ => ({ drawer: false }),
   created() {
     firebaseapp.auth().onAuthStateChanged(user => {
+      // better than mapAction IMO
       this.$store.commit("setUser", user)
-      console.log(user)
     })
   },
-  computed: mapState({
-    currentUser: ({ currentUser }) => currentUser
-  })
+  computed: mapState(["currentUser", "titleSection"])
 }
 </script>
