@@ -4,24 +4,27 @@
 
 [Voltar](https://github.com/sombriks/ifce-2018.1-psi) ao repositório
 
+A aplicação pode ser encontrada online
+[aqui](https://ifce-2018-1-psi.firebaseapp.com/).)
+
 ## Engenharia de computação 2018.1
+
+* Professores
+  * Antônio Serra
+  * Carlos Hairon
+* Alunos
+  * Átila Bastos
+  * Emanuel Lucas
+  * João Adalberto
+  * Leonardo Silveira
+  * Lucas Tavares
 
 ### PSI - Projeto de Sistemas de Informação
 
-- Professores
-  - Antônio Serra
-  - Carlos Hairon
-- Alunos
-  - Átila Bastos
-  - Emanuel Lucas
-  - João Adalberto
-  - Leonardo Silveira
-  - Lucas Tavares
-
-O plano de projeto apresentará nossa proposta de 
+O plano de projeto apresentará nossa proposta de
 realização para o problema proposto dentro do prazo estipulado.
 
-Temos como data *cick-off* o início do semestre e data para o termo de 
+Temos como data _cick-off_ o início do semestre e data para o termo de
 encerramento usaremos a data do fim do semestre.
 
 No plano usaremos um plano de comunicação e papeis ficcional, bem como um
