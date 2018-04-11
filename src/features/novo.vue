@@ -5,12 +5,24 @@
         <v-text-field
           label="Digite seu anúncio aqui"
           v-model="anuncio.nomeanuncio"
-          :counter="600"
+          :counter="20"
           :rules="nomeRules"
           required
           multi-line
         ></v-text-field>
-      </v-container>
+         <v-text-field
+          label="Descrição do seu anúncio aqui"
+          v-model="anuncio.descricaoanuncio"
+          :counter="600"
+          :rules="descricaoRules"
+          required
+          multi-line
+        ></v-text-field>
+        <v-layout align-center>
+          <v-checkbox v-model="enabled" hide-details class="shrink mr-2"></v-checkbox>
+          <v-text-field v-model="anuncio.recompensa" label="Valor da recompensa" :disabled="!enabled"></v-text-field>
+        </v-layout>
+        </v-container>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn :disabled="!valid" flat color="orange" type="submit">Salvar</v-btn>
@@ -24,14 +36,22 @@ const { db } = require("../components/config")
 module.exports = {
   name: "Novo",
   data: _ => ({
+    enabled: false,
     valid: false,
     anuncio: {
-      nomeanuncio: ""
+      nomeanuncio: "",
+      descricaoanuncio: "",
+      recompensa: null
     },
-    nomeRules: [
+    descricaoRules: [
       v => !!v.trim() || "Informe texto do anúncio",
       v => v.length < 600 || "O texto não deve ter mais de 600 caracteres"
+    ],
+    nomeRules: [
+      v => !!v.trim() || "Informe texto da descrição",
+      v => v.length < 20 || "O anúncio não deve ter mais de 20 caracteres"
     ]
+
   }),
   created() {
     this.$store.commit("setTitle", "Find My Pet - Novo anúncio")
