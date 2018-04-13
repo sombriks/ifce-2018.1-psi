@@ -1,25 +1,64 @@
 <template>
   <div>
-    <v-container fill-height>
-        <v-layout align-center>
-          <v-flex>
+    <v-container grid-list-md text-xs-center>
+        <v-layout row wrap>
+          <v-flex xs12 lg12>
+
+            <!-- descrição do anúncio  -->
             <h3 class="display-1">{{this.anuncios[this.key].nomeanuncio}}</h3>
             <p v-if="this.anuncios[this.key].recompensa" class="subheading">Recompensa : {{this.anuncios[this.key].recompensa}}</p>
-            <span class="body-1"> {{this.anuncios[this.key].descricaoanuncio}} </span>
-            <v-carousel>
-              <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
-            </v-carousel>
+            <span class="body-1">Descrição: {{this.anuncios[this.key].descricaoanuncio}} </span>
+             </v-flex>
+
+            <!-- carousel  -->
+          <v-flex xs12 lg12>
+              <v-carousel hide-controls>
+                <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
+              </v-carousel>
+          </v-flex>
+          
+            <!-- comentarios -->
+          <v-flex xs12 lg6>  
             <v-list two-line>
-              <template  v-for="(value,key) in this.anuncios[this.key].comentario">
-              <v-list-tile avatar :key="key">
-                <v-list-tile-content>
-                  <v-list-tile-title v-html="key"></v-list-tile-title>
-                  <v-list-tile-sub-title v-html="value"></v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </template>
-            
+              <template  v-for="(comentario) in this.anuncios[this.key].comentario">
+                <v-list-tile avatar :key="comentario.nomeNovoComentario">
+                  <v-list-tile-content>
+                    <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
+                    <v-list-tile-sub-title> {{comentario.novoComentario}}</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </template>
             </v-list>
+          </v-flex>
+
+          <!-- adicionar comentário  -->
+          <v-flex xs12 lg6>
+          <v-form v-model="valid" @submit.prevent="doSave">
+            <v-card>
+              <v-container fluid>
+                 <v-text-field
+                  label="Digite seu nome aqui"
+                  v-model="comentario.nomeNovoComentario"
+                  :counter="20"
+                  :rules="comentarioRules"
+                  required
+                ></v-text-field>   
+                <v-text-field
+                  label="Digite seu anúncio aqui"
+                  v-model="comentario.novoComentario"
+                  :counter="600"
+                  :rules="comentarioRules"
+                  required
+                  multi-line
+                ></v-text-field>            
+                </v-container>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn :disabled="!valid" flat color="orange" type="submit">Salvar</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-form>
+
           </v-flex>
         </v-layout>
       </v-container>
@@ -27,36 +66,52 @@
   </template>
 
 <script>
-const { db,firebaseapp } = require("../components/config")
+const { db, firebaseapp } = require("../components/config");
 module.exports = {
   name: "Detalhe",
-  firebase:{
-      anuncios: { 
-        source: db.ref(`anuncios`),
-        asObject:true,
-        readyCallback: function(){
-          console.log(this.anuncios)
-          console.log()
-          this.getImgs()
-        }
-      }
-    },
-  created() {
-    this.$store.commit("setTitle", "Find My Pet - Últimos anúncios")
-   },
-  data () {
-    return {
-      key : this.$route.params.idanuncionanimal,
-      items : []
-      }
-  },
-  methods: {
-    getImgs(){
-        for (key in this.anuncios[this.key].fotos) {
-          this.items.push({src: this.anuncios[this.key].fotos[key]})
-        }
+  firebase: {
+    anuncios: {
+      source: db.ref(`anuncios`),
+      asObject: true,
+      readyCallback: function() {
+        this.getImgs();
       }
     }
-}
+  },
+  created() {
+    this.$store.commit("setTitle", "Find My Pet - Últimos anúncios");
+  },
+  data() {
+    return {
+      comentario: {
+        novoComentario:"",
+        nomeNovoComentario: "",
+      },
+      valid: false,
+      key: this.$route.params.idanuncionanimal,
+      items: [],
+      comentarioRules: [
+      v => !!v.trim() || "Informe texto do comentário",
+      v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
+    ],
+    nomeRules: [
+      v => !!v.trim() || "Informe texto do comentário",
+      v => v.length < 20 || "O anúncio não deve ter mais de 20 caracteres"
+    ]
+    };
+  },
+  methods: {
+    getImgs() {
+      for (key in this.anuncios[this.key].fotos) {
+        this.items.push({ src: this.anuncios[this.key].fotos[key] });
+      }
+    },
+     doSave() {
+      if (this.valid) {
+        db.ref("anuncios").child(this.key).child("comentario").push(this.comentario)
+      }
+    }
+  }
+};
 </script>
 
