@@ -2,7 +2,7 @@
   <div>
     <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
-          <v-flex xs12 lg12>
+          <v-flex xs12 lg6>
 
             <!-- descrição do anúncio  -->
             <h3 class="display-1">{{this.anuncios[this.key].nomeanuncio}}</h3>
@@ -11,20 +11,21 @@
              </v-flex>
 
             <!-- carousel  -->
-          <v-flex xs12 lg12>
-              <v-carousel hide-controls>
-                <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
-              </v-carousel>
+          <v-flex xs12 lg6>
+              <!-- <v-carousel hide-controls>
+                <v-carousel-item v-for="(item,i) in items" :src="this.anuncios[this.key].imageUrl" :key="i"></v-carousel-item>
+              </v-carousel> -->
+              <img class="imgDetalhe" :src="this.anuncios[this.key].imageUrl" alt="">
           </v-flex>
-          
-            <!-- comentarios -->
-          <v-flex xs12 lg6>  
-            <v-list two-line>
+          <hr>
+          <!-- comentarios -->
+           <v-flex xs12 lg12>  
+            <v-list three-line>
               <template  v-for="(comentario) in this.anuncios[this.key].comentario">
                 <v-list-tile avatar :key="comentario.nomeNovoComentario">
                   <v-list-tile-content>
                     <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
-                    <v-list-tile-sub-title> {{comentario.novoComentario}}</v-list-tile-sub-title>
+                    <v-list-tile-sub-title aria-multiline> {{comentario.novoComentario}}</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </template>
@@ -32,7 +33,7 @@
           </v-flex>
 
           <!-- adicionar comentário  -->
-          <v-flex xs12 lg6>
+          <v-flex xs12 lg12>
           <v-form v-model="valid" @submit.prevent="doSave">
             <v-card>
               <v-container fluid>
@@ -73,9 +74,6 @@ module.exports = {
     anuncios: {
       source: db.ref(`anuncios`),
       asObject: true,
-      readyCallback: function() {
-        this.getImgs();
-      }
     }
   },
   created() {
@@ -89,7 +87,6 @@ module.exports = {
       },
       valid: false,
       key: this.$route.params.idanuncionanimal,
-      items: [],
       comentarioRules: [
       v => !!v.trim() || "Informe texto do comentário",
       v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
@@ -101,11 +98,6 @@ module.exports = {
     };
   },
   methods: {
-    getImgs() {
-      for (key in this.anuncios[this.key].fotos) {
-        this.items.push({ src: this.anuncios[this.key].fotos[key] });
-      }
-    },
      doSave() {
       if (this.valid) {
         db.ref("anuncios").child(this.key).child("comentario").push(this.comentario)
@@ -115,3 +107,8 @@ module.exports = {
 };
 </script>
 
+<style>
+.imgDetalhe{
+  width: 100%
+}
+</style>

@@ -5,7 +5,7 @@
         <v-text-field
           label="Digite seu anúncio aqui"
           v-model="anuncio.nomeanuncio"
-          :counter="20"
+          :counter="40"
           :rules="nomeRules"
           required
           multi-line
@@ -65,7 +65,7 @@ module.exports = {
     ],
     nomeRules: [
       v => !!v.trim() || "Informe texto da descrição",
-      v => v.length < 20 || "O anúncio não deve ter mais de 20 caracteres"
+      v => v.length < 40 || "O anúncio não deve ter mais de 20 caracteres"
     ],
     imageUrl: "",
     image: null
@@ -86,11 +86,14 @@ module.exports = {
         }).then(key => {
           const filename = this.image.name
           const ext = filename.slice(filename.lastIndexOf('.'))
-          return firebase.storage().ref('anuncios/'+key+'.'+ext).put(this.image)
+          return firebase.storage().ref('cachorros/'+key+'.'+ext).put(this.image)
         }).then(fileData=> {
           console.log(fileData)
           imageUrl = fileData.metadata.downloadURLs[0]
-          return firebase.database().ref('anuncios').child(key).child('fotos').update({image: imageUrl})
+          return firebase.database().ref('anuncios').child(key).update({imageUrl: imageUrl})
+        }).then(_ => {
+          alert("Anúncio salvo com sucesso!")
+          window.location.href = "#/lista"
         })
       }
     },
