@@ -1,16 +1,27 @@
 <template>
   <v-form v-model="valid" @submit.prevent="doSave">
+  <v-progress-linear :indeterminate="progressBar" v-if="progressBar"></v-progress-linear>
+  <v-alert type="success" :value="alertAdd">
+      Anúncio adicionado com sucesso!
+  </v-alert>  
     <v-card>
       <v-container fluid>
         <v-text-field
           label="Digite seu anúncio aqui"
           v-model="anuncio.nomeanuncio"
-          :counter="40"
+          :counter="30"
           :rules="nomeRules"
           required
-          multi-line
         ></v-text-field>
-         <v-text-field
+        <v-text-field
+          label="Telefone para contato aqui"
+          v-model="anuncio.telefoneanuncio"
+          :counter="11"
+          :rules="telefoneRules"
+          required
+          mask="(##)-#-####.####"
+        ></v-text-field>
+        <v-text-field
           label="Descrição do seu anúncio aqui"
           v-model="anuncio.descricaoanuncio"
           :counter="600"
@@ -18,9 +29,9 @@
           required
           multi-line
         ></v-text-field>
-        <v-layout align-center>
+        <v-layout>
           <v-checkbox v-model="enabled" hide-details class="shrink mr-2"></v-checkbox>
-          <v-text-field v-model="anuncio.recompensa" :mask="mask" label="Valor da recompensa" :disabled="!enabled"></v-text-field>
+          <v-text-field v-model="anuncio.recompensa" prefix="R$" placeholder="Valor da recompensa" :disabled="!enabled"></v-text-field>
         </v-layout>
         </v-container>
         <!-- input para carregar files -->
@@ -38,7 +49,7 @@
         <!-- botao para confimar adicionar -->
         <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn :disabled="!valid" flat color="orange" type="submit">Salvar</v-btn>
+        <v-btn :disabled="!valid || !this.validPhoto" flat color="orange" type="submit">Salvar</v-btn>
       </v-card-actions>
     </v-card>
   </v-form>
@@ -49,13 +60,15 @@ const { firebase,db } = require("../components/config")
 module.exports = {
   name: "Novo",
   data: _ => ({
-    mask: 'R$ ###,##',
-    value: '100',
+    alertAdd: false,
+    progressBar: false,
     enabled: false,
     valid: false,
+    validPhoto: false,
     anuncio: {
       nomeanuncio: "",
       descricaoanuncio: "",
+      telefoneanuncio: "",
       recompensa: null,
       fotos:[]
     },
@@ -65,7 +78,10 @@ module.exports = {
     ],
     nomeRules: [
       v => !!v.trim() || "Informe texto da descrição",
-      v => v.length < 40 || "O anúncio não deve ter mais de 20 caracteres"
+      v => v.length < 31 || "O anúncio não deve ter mais de 30 caracteres"
+    ],
+    telefoneRules: [
+      v => !!v.trim() || "Informe número para contato",
     ],
     imageUrl: "",
     image: null
@@ -75,6 +91,7 @@ module.exports = {
   },
   methods: {
     doSave() {
+      this.progressBar = true
       let key = ""
       if (this.valid) {
         // https://firebase.google.com/docs/reference/js/firebase.database.Reference#push
@@ -88,12 +105,11 @@ module.exports = {
           const ext = filename.slice(filename.lastIndexOf('.'))
           return firebase.storage().ref('cachorros/'+key+'.'+ext).put(this.image)
         }).then(fileData=> {
-          console.log(fileData)
           imageUrl = fileData.metadata.downloadURLs[0]
           return firebase.database().ref('anuncios').child(key).update({imageUrl: imageUrl})
         }).then(_ => {
-          alert("Anúncio salvo com sucesso!")
-          window.location.href = "#/lista"
+          this.progressBar = false
+          this.alertAdd = true
         })
       }
     },
@@ -113,6 +129,7 @@ module.exports = {
       })
       fileReader.readAsDataURL(files[0])
       this.image = files[0]
+      this.validPhoto = true
     }
   }
 }

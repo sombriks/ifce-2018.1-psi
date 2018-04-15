@@ -3,6 +3,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css" />
   </div>
 </template>
+
 <script>
 const firebase = require("firebase")
 const firebaseui = require("firebaseui")
