@@ -56,6 +56,8 @@
 </template>
 
 <script>
+const { mapState } = require("vuex")
+ const { firebaseapp } = require("../components/config")
 const { firebase,db } = require("../components/config")
 module.exports = {
   name: "Novo",
@@ -97,7 +99,7 @@ module.exports = {
         // https://firebase.google.com/docs/reference/js/firebase.database.Reference#push
         // https://firebase.google.com/docs/reference/js/firebase.database.Reference#set
         // https://firebase.google.com/docs/reference/js/firebase.database.Reference#remove
-        db.ref("anuncios").push(this.anuncio).then(data => {
+        db.ref("anuncios").child(this.currentUser.uid).child('anuncio').push(this.anuncio).then(data => {
           key = data.key 
           return key
         }).then(key => {
@@ -106,7 +108,7 @@ module.exports = {
           return firebase.storage().ref('cachorros/'+key+'.'+ext).put(this.image)
         }).then(fileData=> {
           imageUrl = fileData.metadata.downloadURLs[0]
-          return firebase.database().ref('anuncios').child(key).update({imageUrl: imageUrl})
+          return firebase.database().ref('anuncios').child(this.currentUser.uid).child('anuncio').child(key).update({imageUrl: imageUrl})
         }).then(_ => {
           this.progressBar = false
           this.alertAdd = true
@@ -131,7 +133,8 @@ module.exports = {
       this.image = files[0]
       this.validPhoto = true
     }
-  }
+  },
+  computed: mapState(["currentUser"]),
 }
 </script>
 

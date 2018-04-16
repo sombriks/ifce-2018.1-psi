@@ -1,5 +1,6 @@
 <template>
-<v-app id="inspire">
+<v-app id="inspire"> 
+    {{currentUser}}
     <v-container fluid grid-list-md>
           <v-layout row wrap>
             <v-flex
@@ -15,6 +16,7 @@
                   <div>
                     <h3 class="headline mb-0 wrapAnuncio">{{anuncio.nomeanuncio}}</h3>
                     <div class="wrapAnuncio">{{anuncio.descricaoanuncio}}</div>
+                    <div>{{anuncio.telefoneanuncio}}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>
