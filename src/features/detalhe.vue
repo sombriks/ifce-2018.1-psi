@@ -23,7 +23,7 @@
             <h2 class="title">Comentários</h2>
             <v-list three-line>
               <template  v-for="(comentario) in this.anuncios[this.key].comentario">
-                <v-list-tile avatar :key="comentario.nomeNovoComentario">
+                <v-list-tile avatar :key="`comentario - ${comentario.novoComentario}`">
                   <v-list-tile-content>
                     <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
                     <v-list-tile-sub-title aria-multiline> {{comentario.novoComentario}}</v-list-tile-sub-title>

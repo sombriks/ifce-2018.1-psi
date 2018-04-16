@@ -47,7 +47,7 @@ module.exports = {
 
 <style>
 .wrapAnuncio{
-  width: 350px;
+  width: 300px;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
