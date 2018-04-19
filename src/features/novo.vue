@@ -1,9 +1,12 @@
 <template>
   <v-form v-model="valid" @submit.prevent="doSave">
-  <v-progress-linear :indeterminate="progressBar" v-if="progressBar"></v-progress-linear>
-  <v-alert type="success" :value="alertAdd">
-      Anúncio adicionado com sucesso!
-  </v-alert>  
+  <v-dialog v-model="loading" persistent fullscreen content-class="loading-dialog">
+        <v-container fill-height>
+          <v-layout row justify-center align-center>
+            <v-progress-circular indeterminate :size="100" :width="7" color="yellow"></v-progress-circular>
+          </v-layout>
+        </v-container>
+      </v-dialog>
     <v-card>
       <v-container fluid>
         <v-text-field
@@ -19,7 +22,7 @@
           :counter="11"
           :rules="telefoneRules"
           required
-          mask="(##)-#-####.####"
+          mask="(##) # ####.####"
         ></v-text-field>
         <v-text-field
           label="Descrição do seu anúncio aqui"
@@ -62,8 +65,12 @@ const { firebase,db } = require("../components/config")
 module.exports = {
   name: "Novo",
   data: _ => ({
-    alertAdd: false,
-    progressBar: false,
+
+    dialog: false,
+    loading: false,
+    sound: true,
+    widgets: false,
+
     enabled: false,
     valid: false,
     validPhoto: false,
@@ -93,7 +100,7 @@ module.exports = {
   },
   methods: {
     doSave() {
-      this.progressBar = true
+      this.loading = true 
       let key = ""
       if (this.valid) {
         // https://firebase.google.com/docs/reference/js/firebase.database.Reference#push
@@ -109,9 +116,8 @@ module.exports = {
         }).then(fileData=> {
           imageUrl = fileData.metadata.downloadURLs[0]
           return firebase.database().ref('anuncios').child(this.currentUser.uid).child('anuncio').child(key).update({imageUrl: imageUrl})
-        }).then(_ => {
-          this.progressBar = false
-          this.alertAdd = true
+        }).then(_ => {  
+           window.location.href = "#/lista"
         })
       }
     },

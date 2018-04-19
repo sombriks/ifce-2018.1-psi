@@ -2,6 +2,16 @@
   <div>
     <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
+           <v-dialog v-model="dialog" persistent max-width="290">
+            <v-card>
+              <v-card-title class="headline">Você não está logado!</v-card-title>
+              <v-card-text>Por favor, logue-se para poder comentar.</v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="yellow darken-1" flat @click="goToAuth">Logar</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
           <v-flex xs12 lg6>
 
             <!-- descrição do anúncio  -->
@@ -20,49 +30,53 @@
           
           <!-- comentarios -->
            <v-flex xs12 lg12>  
-            <h2 class="title">Comentários</h2>
+          
+          <h2 class="headline">comentários</h2>
             <v-list three-line>
-              <template  v-for="(comentario) in this.anuncios[this.key].comentario">
-                <v-list-tile avatar :key="`comentario - ${comentario.novoComentario}`">
-                  <v-list-tile-content>
-                    <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
-                    <v-list-tile-sub-title aria-multiline> {{comentario.novoComentario}}</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-divider :key='comentario.nomeNovoComentario'></v-divider>
-              </template>
+              <div v-if="this.anuncios[this.key].comentario">
+                <template v-for="(comentario) in this.anuncios[this.key].comentario">
+                  <v-list-tile avatar :key="`comentario - ${comentario.novoComentario}`">
+                    <v-list-tile-content>
+                      <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
+                      <v-list-tile-sub-title aria-multiline> {{comentario.novoComentario}}</v-list-tile-sub-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-divider :key='comentario.nomeNovoComentario'></v-divider>
+                </template>
+              </div>
+              <div v-else>
+                ninguém comentou ainda :(
+              </div>
             </v-list>
           </v-flex>
-
-          <!-- adicionar comentário  -->
           <v-flex xs12 lg12>
-         <h2 class="title">Novo Comentário:</h2>
-          <v-form v-model="valid" @submit.prevent="doSave">
-            <v-card>
-              <v-container fluid>
-                 <v-text-field
-                  label="Digite seu nome aqui"
-                  v-model="comentario.nomeNovoComentario"
-                  :counter="20"
-                  :rules="comentarioRules"
-                  required
-                ></v-text-field>   
-                <v-text-field
-                  label="Digite seu anúncio aqui"
-                  v-model="comentario.novoComentario"
-                  :counter="600"
-                  :rules="comentarioRules"
-                  required
-                  multi-line
-                ></v-text-field>            
-                </v-container>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn :disabled="!valid" flat color="orange" type="submit">Salvar</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-form>
-
+            <div v-if="this.currentUser != null">
+          <!-- adicionar comentário  -->
+              <h2 class="headline">novo comentário</h2>
+                <v-form v-model="valid" @submit.prevent="doSave">
+                  <v-card>
+                      <v-container fluid>
+                      <v-text-field
+                          :label='this.currentUser.displayName'
+                          v-model="comentario.nomeNovoComentario"
+                          disabled
+                      ></v-text-field>   
+                      <v-text-field
+                        label="Digite seu anúncio aqui"
+                        v-model="comentario.novoComentario"
+                        :counter="600"
+                        :rules="comentarioRules"
+                        required
+                        multi-line
+                      ></v-text-field>            
+                      </v-container>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn :disabled="!valid" flat color="orange" type="submit">Salvar</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-form>
+            </div>
           </v-flex>
         </v-layout>
       </v-container>
@@ -70,6 +84,7 @@
   </template>
 
 <script>
+const { mapState } = require("vuex")
 const { db, firebaseapp } = require("../components/config");
 module.exports = {
   name: "Detalhe",
@@ -88,6 +103,7 @@ module.exports = {
   },
   data() {
     return {
+      dialog: false,
       comentario: {
         novoComentario:"",
         nomeNovoComentario: "",
@@ -98,25 +114,27 @@ module.exports = {
       comentarioRules: [
       v => !!v.trim() || "Informe texto do comentário",
       v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
-    ],
-    nomeRules: [
-      v => !!v.trim() || "Informe texto do comentário",
-      v => v.length < 20 || "O anúncio não deve ter mais de 20 caracteres"
-    ]
-    };
+    ]};
   },
   methods: {
      doSave() {
-      if (this.valid) {
+      this.comentario.nomeNovoComentario = this.currentUser.displayName
+      if (this.valid && this.currentUser != null) {
         db.ref("anuncios").child(this.key).child("comentario").push(this.comentario)
+      }else{
+        this.dialog = false
       }
     },
     formatPhoneNumber(){
       let phoneNumber = this.anuncios[this.key].telefoneanuncio;
       phoneNumber = phoneNumber.slice('')
-      this.phoneNumber = `(${phoneNumber[0]}${phoneNumber[1]})-${phoneNumber[2]}-${phoneNumber[3]}${phoneNumber[4]}${phoneNumber[5]}${phoneNumber[6]}-${phoneNumber[7]}${phoneNumber[8]}${phoneNumber[9]}${phoneNumber[10]}`
+      this.phoneNumber = `(${phoneNumber[0]}${phoneNumber[1]}) ${phoneNumber[2]} ${phoneNumber[3]}${phoneNumber[4]}${phoneNumber[5]}${phoneNumber[6]}-${phoneNumber[7]}${phoneNumber[8]}${phoneNumber[9]}${phoneNumber[10]}`
+    },
+    goToAuth: function(){ 
+      window.location.href = "#/login"
     }
-  } 
+  },
+  computed: mapState(["currentUser"]), 
 };
 </script>
 
