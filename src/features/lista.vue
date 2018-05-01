@@ -1,14 +1,11 @@
 <template>
 <v-app id="inspire"> 
-    {{currentUser}}
     <v-container fluid grid-list-md>
-          <v-layout row wrap>
-            <v-flex
-              v-bind="{ [`xs${anuncio.flex}`]: true }"
-              v-for="anuncio in anuncios"
-              :key="anuncio.nomeanuncio"
-              xs12 lg6
-            >
+          <v-layout row wrap v-for="anunciosOfUser in anuncios"
+              :key="key = anunciosOfUser['.key']">
+            <v-flex v-bind="{ [`xs${anuncio.flex}`]: true }" v-for="anuncio in anunciosOfUser.anuncio"
+              :key="anuncio.nomeanuncio" xs12 lg6 >
+              {{i,anuncio}}
               <v-card>
                 <v-card-media :src="anuncio.imageUrl" height="200px">
                 </v-card-media>
@@ -20,7 +17,7 @@
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat color="orange" @click="showAnimal(anuncio['.key'])">Detalhes</v-btn>
+                  <v-btn flat color="orange" @click="showAnimal(anunciosOfUser['.key'],anuncio['.key'])">Detalhes</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
@@ -30,20 +27,26 @@
 </template>
 
 <script>
+const { mapState } = require("vuex")
 const { db } = require("../components/config")
 module.exports = {
   name: "Lista",
   firebase: {
-    anuncios: db.ref("anuncios")
+    anuncios: {
+      source: db.ref(`anuncios`),
+      asObject: true,
+      },
   },
   created() {
     this.$store.commit("setTitle", "Find My Pet - Últimos anúncios")
   },
   methods:{
-    showAnimal: function(key){ 
-      this.$router.push({path: `/detalhe/${key}`})
+    showAnimal: function(userKey,anuncioKey){
+      console.log(userKey) 
+      // this.$router.push({path: `/detalhe/${anunciokey}`})
     }
-  }
+  },
+  computed: mapState(["currentUser"]), 
 }
 </script>
 

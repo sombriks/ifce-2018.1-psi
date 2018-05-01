@@ -41,7 +41,7 @@
                       <v-list-tile-sub-title aria-multiline> {{comentario.novoComentario}}</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-divider :key='comentario.nomeNovoComentario'></v-divider>
+                  <v-divider :key="`divider - ${comentario.nomeNovoComentario}`"></v-divider>
                 </template>
               </div>
               <div v-else>
@@ -57,7 +57,7 @@
                   <v-card>
                       <v-container fluid>
                       <v-text-field
-                          :label='this.currentUser.displayName'
+                          :placeholder='this.currentUser.displayName'
                           v-model="comentario.nomeNovoComentario"
                           disabled
                       ></v-text-field>   
@@ -95,11 +95,10 @@ module.exports = {
       readyCallback: function () {
         this.formatPhoneNumber()
       }
-    }
+    },
   },
   created() {
     this.$store.commit("setTitle", "Find My Pet - Últimos anúncios");
-    
   },
   data() {
     return {
@@ -107,12 +106,11 @@ module.exports = {
       comentario: {
         novoComentario:"",
         nomeNovoComentario: "",
-      },
+      },  
       phoneNumber : "231312",
       valid: false,
       key: this.$route.params.idanuncionanimal,
       comentarioRules: [
-      v => !!v.trim() || "Informe texto do comentário",
       v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
     ]};
   },
@@ -121,6 +119,7 @@ module.exports = {
       this.comentario.nomeNovoComentario = this.currentUser.displayName
       if (this.valid && this.currentUser != null) {
         db.ref("anuncios").child(this.key).child("comentario").push(this.comentario)
+        this.comentario.novoComentario = ''
       }else{
         this.dialog = false
       }
@@ -134,8 +133,7 @@ module.exports = {
       window.location.href = "#/login"
     }
   },
-  computed: mapState(["currentUser"]), 
-};
+  };
 </script>
 
 <style>
