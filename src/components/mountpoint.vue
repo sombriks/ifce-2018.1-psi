@@ -29,7 +29,7 @@
           <v-list-tile-title>Anúncios</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile :href="`#/perfil/${currentUser.uid}`">
+      <v-list-tile v-if="currentUser" :href="`#/perfil/${currentUser.uid}`">
         <v-list-tile-action>
           <v-icon>list</v-icon>
         </v-list-tile-action>
