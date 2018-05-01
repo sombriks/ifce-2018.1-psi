@@ -1,11 +1,10 @@
 <template>
 <v-app id="inspire"> 
     <v-container fluid grid-list-md>
-          <v-layout row wrap v-for="anunciosOfUser in anuncios"
+          <v-layout row wrap v-for="(anunciosOfUser,userKey) in anuncios"
               :key="key = anunciosOfUser['.key']">
-            <v-flex v-bind="{ [`xs${anuncio.flex}`]: true }" v-for="anuncio in anunciosOfUser.anuncio"
+            <v-flex v-bind="{ [`xs${anuncio.flex}`]: true }" v-for="(anuncio,anuncioKey) in anunciosOfUser.anuncio"
               :key="anuncio.nomeanuncio" xs12 lg6 >
-              {{i,anuncio}}
               <v-card>
                 <v-card-media :src="anuncio.imageUrl" height="200px">
                 </v-card-media>
@@ -17,7 +16,7 @@
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat color="orange" @click="showAnimal(anunciosOfUser['.key'],anuncio['.key'])">Detalhes</v-btn>
+                  <v-btn flat color="orange" @click="showAnimal(userKey,anuncioKey)">Detalhes</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
@@ -42,8 +41,7 @@ module.exports = {
   },
   methods:{
     showAnimal: function(userKey,anuncioKey){
-      console.log(userKey) 
-      // this.$router.push({path: `/detalhe/${anunciokey}`})
+      this.$router.push({path: `/detalhe/${userKey}/${anuncioKey}`})
     }
   },
   computed: mapState(["currentUser"]), 

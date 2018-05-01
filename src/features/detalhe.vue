@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-container grid-list-md text-xs-center>
-        <v-layout row wrap>
-           <v-dialog v-model="dialog" persistent max-width="290">
+        <v-layout row wrap><v-dialog v-model="dialog" persistent max-width="290">
             <v-card>
               <v-card-title class="headline">Você não está logado!</v-card-title>
               <v-card-text>Por favor, logue-se para poder comentar.</v-card-text>
@@ -13,18 +12,18 @@
             </v-card>
           </v-dialog>
           <v-flex xs12 lg6>
-
+            
             <!-- descrição do anúncio  -->
-            <h1 class="display-1">{{this.anuncios[this.key].nomeanuncio}}</h1>
+            <h1 class="display-1">{{this.anuncio.nomeanuncio}}</h1>
             <h2 class="headline">{{this.phoneNumber}}</h2>
-            <p v-if="this.anuncios[this.key].recompensa" class="subheading">Recompensa : R$ {{this.anuncios[this.key].recompensa}}</p>
-            <span class="body-1">Descrição: {{this.anuncios[this.key].descricaoanuncio}} </span>
+            <p v-if="this.anuncio.recompensa" class="subheading">Recompensa : R$ {{this.anuncio.recompensa}}</p>
+            <span class="body-1">Descrição: {{this.anuncio.descricaoanuncio}} </span>
              </v-flex>
 
             <!-- carousel  -->
           <v-flex xs12 lg6>
               <div class="imgDiv">    
-                <img class="imgDetalhe" :src="this.anuncios[this.key].imageUrl" alt="">
+                <img class="imgDetalhe" :src="this.anuncio.imageUrl" alt="">
               </div>
           </v-flex>
           
@@ -33,8 +32,8 @@
           
           <h2 class="headline">comentários</h2>
             <v-list three-line>
-              <div v-if="this.anuncios[this.key].comentario">
-                <template v-for="(comentario) in this.anuncios[this.key].comentario">
+              <div v-if="this.anuncio.comentario">
+                <template v-for="(comentario) in this.anuncio.comentario">
                   <v-list-tile avatar :key="`comentario - ${comentario.novoComentario}`">
                     <v-list-tile-content>
                       <v-list-tile-title> {{comentario.nomeNovoComentario}} </v-list-tile-title>
@@ -88,20 +87,22 @@ const { mapState } = require("vuex")
 const { db, firebaseapp } = require("../components/config");
 module.exports = {
   name: "Detalhe",
-  firebase: {
-    anuncios: {
-      source: db.ref(`anuncios`),
-      asObject: true,
-      readyCallback: function () {
-        this.formatPhoneNumber()
-      }
-    },
-  },
+  // firebase: {
+  //   anuncio: {
+  //     source: db.ref(`anuncios`),
+  //     asObject: true,
+  //     readyCallback: function () {
+  //       //this.formatPhoneNumber()
+  //     }
+  //   },
+  // },
   created() {
+    this.$bindAsObject('anuncio', firebaseapp.database().ref(`anuncios/${this.userKey}/anuncio/${this.idanuncioanimal}`));
     this.$store.commit("setTitle", "Find My Pet - Últimos anúncios");
   },
   data() {
     return {
+      anuncio: {},
       dialog: false,
       comentario: {
         novoComentario:"",
@@ -109,7 +110,8 @@ module.exports = {
       },  
       phoneNumber : "231312",
       valid: false,
-      key: this.$route.params.idanuncionanimal,
+      userKey: this.$route.params.userkey,
+      idanuncioanimal: this.$route.params.idanuncioanimal,
       comentarioRules: [
       v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
     ]};
