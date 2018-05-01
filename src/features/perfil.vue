@@ -1,6 +1,6 @@
 <template>
   <v-card v-if="currentUser && $route.params.idamigoanimal == currentUser.uid">
-    <v-btn @click="sair">Sair</v-btn>
+    
     <v-app id="inspire">
       <v-container fluid grid-list-md>
           <v-layout row wrap>
@@ -27,7 +27,8 @@
             </v-flex>
           </v-layout>
         </v-container>
-  </v-app>
+    </v-app>
+    <v-btn @click="sair">Sair</v-btn>
   </v-card>
 </template>
 

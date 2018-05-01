@@ -2,7 +2,7 @@
 <v-app>
   <v-navigation-drawer app v-model="drawer">
     <v-list>
-      <v-list-tile v-if="currentUser" :href="`#/perfil/${currentUser.uid}`">
+      <v-list-tile v-if="currentUser">
         <v-list-tile-action>
           <v-avatar>
             <img :src="currentUser.photoURL"/>
@@ -27,6 +27,14 @@
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>Anúncios</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile :href="`#/perfil/${currentUser.uid}`">
+        <v-list-tile-action>
+          <v-icon>list</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Meus anúncios</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile v-if="currentUser" href="#/novo">
