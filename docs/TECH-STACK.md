@@ -4,40 +4,38 @@ As tecnologias adotadas para este projeto seguem
 
 ## Front End
 
-- vue
-- vue-router
-- vuetify
-- axios
+* vue
+* vue-router
+* vuetify
 
 ## Testing
 
-- mocha
-- chai
-- nightmare
+* mocha
+* chai
 
 ## Build toolchain
 
-- browserify
-- budo
-- vueify
-- envify
-- cross-env
-- browserify-css
-- make
+* browserify
+* budo
+* vueify
+* envify
+* cross-env
+* browserify-css
+* make
 
 ## Persistence Layer
 
-- google firebase database (evaluation)
+* google firebase database
 
 ## Publishing
 
-- google firebase hosting
+* google firebase hosting
 
 ## Versioning control system
 
-- github repo
+* github repo
 
 ## Project management
 
-- github issues
-- github projetcs
+* github issues
+* github projetcs
