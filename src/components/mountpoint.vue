@@ -54,6 +54,11 @@
           <v-list-tile-title>Sobre o Find My Pet</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
+      <v-list-tile v-if="currentUser">
+        <v-list-tile-content>
+          <v-btn @click="sair">Sair</v-btn>
+        </v-list-tile-content>
+      </v-list-tile>
     </v-list>
   </v-navigation-drawer>
   <v-toolbar app color="amber">
@@ -90,6 +95,13 @@ module.exports = {
       this.$store.commit("setUser", user)
     })
   },
-  computed: mapState(["currentUser", "titleSection"])
+  computed: mapState(["currentUser", "titleSection"]),
+  methods:{
+    sair() {
+      firebaseapp.auth().signOut()
+      window.location.href = "#/"
+      this.$store.commit("setUser", null)
+    }
+  }
 }
 </script>

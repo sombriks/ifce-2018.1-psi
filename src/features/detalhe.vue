@@ -12,6 +12,7 @@
             </v-card>
           </v-dialog>
           <v-flex xs12 lg6>
+            {{anuncios}}
             
             <!-- descrição do anúncio  -->
             <h1 class="display-1">{{this.anuncio.nomeanuncio}}</h1>
@@ -20,7 +21,7 @@
             <span class="body-1">Descrição: {{this.anuncio.descricaoanuncio}} </span>
              </v-flex>
 
-            <!-- carousel  -->
+            <!-- img  -->
           <v-flex xs12 lg6>
               <div class="imgDiv">    
                 <img class="imgDetalhe" :src="this.anuncio.imageUrl" alt="">
@@ -87,18 +88,14 @@ const { mapState } = require("vuex")
 const { db, firebaseapp } = require("../components/config");
 module.exports = {
   name: "Detalhe",
-  // firebase: {
-  //   anuncio: {
-  //     source: db.ref(`anuncios`),
-  //     asObject: true,
-  //     readyCallback: function () {
-  //       //this.formatPhoneNumber()
-  //     }
-  //   },
-  // },
   created() {
-    this.$bindAsObject('anuncio', firebaseapp.database().ref(`anuncios/${this.userKey}/anuncio/${this.idanuncioanimal}`));
+    this.$bindAsObject('anuncio', firebaseapp.database().ref(`anuncios/${this.userKey}/anuncio/${this.idanuncioanimal}`), null, () => {
+      this.formatPhoneNumber()
+    })
     this.$store.commit("setTitle", "Find My Pet - Últimos anúncios");
+  },
+  beforeMount (){
+    
   },
   data() {
     return {
@@ -108,7 +105,7 @@ module.exports = {
         novoComentario:"",
         nomeNovoComentario: "",
       },  
-      phoneNumber : "231312",
+      phoneNumber : "",
       valid: false,
       userKey: this.$route.params.userkey,
       idanuncioanimal: this.$route.params.idanuncioanimal,
@@ -120,14 +117,14 @@ module.exports = {
      doSave() {
       this.comentario.nomeNovoComentario = this.currentUser.displayName
       if (this.valid && this.currentUser != null) {
-        db.ref("anuncios").child(this.key).child("comentario").push(this.comentario)
+        db.ref("anuncios").child(this.idanuncioanimal).child('/anuncio').child(this.userKey).child("comentario").push(this.comentario)
         this.comentario.novoComentario = ''
       }else{
         this.dialog = false
       }
     },
     formatPhoneNumber(){
-      let phoneNumber = this.anuncios[this.key].telefoneanuncio;
+      let phoneNumber = this.anuncio.telefoneanuncio;
       phoneNumber = phoneNumber.slice('')
       this.phoneNumber = `(${phoneNumber[0]}${phoneNumber[1]}) ${phoneNumber[2]} ${phoneNumber[3]}${phoneNumber[4]}${phoneNumber[5]}${phoneNumber[6]}-${phoneNumber[7]}${phoneNumber[8]}${phoneNumber[9]}${phoneNumber[10]}`
     },
@@ -135,6 +132,8 @@ module.exports = {
       window.location.href = "#/login"
     }
   },
+  computed: mapState(["currentUser"]), 
+
   };
 </script>
 

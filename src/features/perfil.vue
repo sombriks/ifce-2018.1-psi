@@ -6,29 +6,32 @@
           <v-layout row wrap>
             <v-flex
               v-bind="{ [`xs${anuncio.flex}`]: true }"
-              v-for="anuncio in meusanuncios"
+              v-for="(anuncio,anuncioKey) in meusanuncios"
               :key="anuncio.nomeanuncio"
               xs12 lg6
             >
-              <v-card>
-                <v-card-media :src="anuncio.imageUrl" height="200px">
-                </v-card-media>
-                <v-card-title primary-title>
-                  <div>
-                    <h3 class="headline mb-0 wrapAnuncio">{{anuncio.nomeanuncio}}</h3>
-                    <div class="wrapAnuncio">{{anuncio.descricaoanuncio}}</div>
-                    <div>{{anuncio.telefoneanuncio}}</div>
-                  </div>
-                </v-card-title>
-                <v-card-actions>
-                  <v-btn flat color="orange" @click="showAnimal(anuncio['.key'])">Detalhes</v-btn>
-                </v-card-actions>
-              </v-card>
+            <!-- aqui é pura gambiarra, pra evitar o .key aparecer nos cards -->
+            <div v-if=" anuncio != 'anuncio' ">
+                <v-card>
+                  <v-card-media :src="anuncio.imageUrl" height="200px">
+                  </v-card-media>
+                  <v-card-title primary-title>
+                    <div>
+                      <h3 class="headline mb-0 wrapAnuncio">{{anuncio.nomeanuncio}}</h3>
+                      <div class="wrapAnuncio">{{anuncio.descricaoanuncio}}</div>
+                      <div>{{`(${anuncio.telefoneanuncio.split('')[0]}${anuncio.telefoneanuncio.split('')[1]}) ${anuncio.telefoneanuncio.split('')[2]} ${anuncio.telefoneanuncio.split('')[3]}${anuncio.telefoneanuncio.split('')[4]}${anuncio.telefoneanuncio.split('')[5]}${anuncio.telefoneanuncio.split('')[6]}-${anuncio.telefoneanuncio.split('')[7]}${anuncio.telefoneanuncio.split('')[8]}${anuncio.telefoneanuncio.split('')[9]}${anuncio.telefoneanuncio.split('')[10]}`
+                      }}</div>
+                    </div>
+                  </v-card-title>
+                  <v-card-actions>
+                    <v-btn flat color="orange" @click="showAnimal(userKey,anuncioKey)">Detalhes</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </div>
             </v-flex>
           </v-layout>
         </v-container>
     </v-app>
-    <v-btn @click="sair">Sair</v-btn>
   </v-card>
 </template>
 
@@ -38,25 +41,21 @@ const { firebaseapp,db } = require("../components/config")
 module.exports = {
   name: "Perfil",
   methods: {
-    sair() {
-      firebaseapp.auth().signOut()
-      window.location.href = "#/"
-      this.$store.commit("setUser", null)
-    },
-    showAnimal: function(key){ 
-      this.$router.push({path: `/detalhe/${key}`})
+    showAnimal: function(userKey,anuncioKey){
+      this.$router.push({path: `/detalhe/${userKey}/${anuncioKey}`})
     }
   },
   data () {
     return {
-      meusanuncios : [],
+      userKey : this.$route.params.idamigoanimal,
+      meusanuncios : {},
     } 
   },
-  beforeCreate: function() {
+  beforeCreate () {
     firebaseapp.auth().onAuthStateChanged(function(user) {
       if (user) {
         this.user = user
-        this.$bindAsArray('meusanuncios', db.ref('anuncios/' + user.uid + '/anuncio'))
+        this.$bindAsObject('meusanuncios', db.ref('anuncios/' + user.uid + '/anuncio'))
       } else {
         firebase.auth().signInAnonymously().catch(console.error)
       }
