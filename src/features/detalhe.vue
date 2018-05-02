@@ -89,7 +89,7 @@ const { db, firebaseapp } = require("../components/config");
 module.exports = {
   name: "Detalhe",
   created() {
-    this.$bindAsObject('anuncio', firebaseapp.database().ref(`anuncios/${this.userKey}/anuncio/${this.idanuncioanimal}`), null, () => {
+    this.$bindAsObject('anuncio', firebaseapp.database().ref(`anuncios/${this.userKey}/anuncio/${this.idanuncioanimal}`), null, _ => {
       this.formatPhoneNumber()
     })
     this.$store.commit("setTitle", "Find My Pet - Últimos anúncios");
@@ -117,7 +117,7 @@ module.exports = {
      doSave() {
       this.comentario.nomeNovoComentario = this.currentUser.displayName
       if (this.valid && this.currentUser != null) {
-        db.ref("anuncios").child(this.idanuncioanimal).child('/anuncio').child(this.userKey).child("comentario").push(this.comentario)
+        db.ref("anuncios").child(this.userKey).child('/anuncio').child(this.idanuncioanimal).child("comentario").push(this.comentario)
         this.comentario.novoComentario = ''
       }else{
         this.dialog = false
