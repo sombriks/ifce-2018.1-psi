@@ -19,7 +19,8 @@
             <h2 class="headline">{{this.phoneNumber}}</h2>
             <p v-if="this.anuncio.recompensa" class="subheading">Recompensa : R$ {{this.anuncio.recompensa}}</p>
             <span class="body-1">Descrição: {{this.anuncio.descricaoanuncio}} </span>
-             </v-flex>
+                       
+          </v-flex>
 
             <!-- img  -->
           <v-flex xs12 lg6>
@@ -131,6 +132,7 @@ module.exports = {
     goToAuth: function(){ 
       window.location.href = "#/login"
     }
+    
   },
   computed: mapState(["currentUser"]), 
 

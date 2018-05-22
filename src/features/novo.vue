@@ -117,7 +117,7 @@ module.exports = {
           imageUrl = fileData.metadata.downloadURLs[0]
           return firebase.database().ref('anuncios').child(this.currentUser.uid).child('anuncio').child(key).update({imageUrl: imageUrl})
         }).then(_ => {  
-           window.location.href = "#/lista'"
+           window.location.href = "#/lista"
         })
       }
     },

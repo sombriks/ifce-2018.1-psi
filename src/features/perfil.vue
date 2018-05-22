@@ -25,6 +25,7 @@
                   </v-card-title>
                   <v-card-actions>
                     <v-btn flat color="orange" @click="showAnimal(userKey,anuncioKey)">Detalhes</v-btn>
+                    <v-btn flat color="orange" @click="deletePost(anuncioKey)">Apagar</v-btn>
                   </v-card-actions>
                 </v-card>
               </div>
@@ -43,11 +44,22 @@ module.exports = {
   methods: {
     showAnimal: function(userKey,anuncioKey){
       this.$router.push({path: `/detalhe/${userKey}/${anuncioKey}`})
+    },
+    deletePost(id) {
+      db.ref("anuncios").child(this.userKey).child('/anuncio').child(id).remove()
+        .then( _ => {
+          console.log('Anuncio removido com sucesso');
+          window.location.href = "#/lista";
+        })
+        .catch(function(error) {
+          console.log("Falha: " + error.message)
+        });
     }
   },
   data () {
     return {
       userKey : this.$route.params.idamigoanimal,
+      idanuncioanimal: this.$route.params.idanuncioanimal,
       meusanuncios : {},
     } 
   },
