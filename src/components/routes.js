@@ -5,5 +5,6 @@ module.exports = [
   { path: "/lista", component: require("../features/lista.vue") },
   { path: "/login", component: require("../features/login.vue") },
   { path: "/novo", component: require("../features/novo.vue") },
+  { path: "/editar/:userkey/:idanuncioanimal", component: require("../features/editar.vue")},
   { path: "/perfil/:idamigoanimal", component: require("../features/perfil.vue") },
 ]
