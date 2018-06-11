@@ -43,7 +43,7 @@ module.exports = {
   name: "Perfil",
   methods: {
     showAnimal: function(userKey,anuncioKey){
-      this.$router.push({path: `/detalhe/${userKey}/${anuncioKey}`})
+      this.$router.push({path: `/editar/${userKey}/${anuncioKey}`})
     },
     deletePost(id) {
       db.ref("anuncios").child(this.userKey).child('/anuncio').child(id).remove()

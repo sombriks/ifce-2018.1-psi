@@ -6,4 +6,5 @@ module.exports = [
   { path: "/login", component: require("../features/login.vue") },
   { path: "/novo", component: require("../features/novo.vue") },
   { path: "/perfil/:idamigoanimal", component: require("../features/perfil.vue") },
+  { path: "/editar/:userkey/:idanuncioanimal", component: require("../features/editar.vue")},
 ]
