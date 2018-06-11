@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container grid-list-md text-xs-center>
+    <v-container v-model="valid" grid-list-md text-xs-center>
         <v-layout row wrap><v-dialog v-model="dialog" persistent max-width="290">
             <v-card>
               <v-card-title class="headline">Você não está logado!</v-card-title>
@@ -58,13 +58,12 @@
                   <v-card>
                       <v-container fluid>
                       <v-text-field
-                          :placeholder='this.currentUser.displayName'
-                          v-model="comentario.nomeNovoComentario"
+                          v-model="this.comentario.nomeNovoComentario"
                           disabled
                       ></v-text-field>   
                       <v-text-field
                         label="Digite seu anúncio aqui"
-                        v-model="comentario.novoComentario"
+                        v-model="comentario.nomeNovoComentario"
                         :counter="600"
                         :rules="comentarioRules"
                         required
@@ -111,15 +110,17 @@ module.exports = {
       userKey: this.$route.params.userkey,
       idanuncioanimal: this.$route.params.idanuncioanimal,
       comentarioRules: [
-      v => v.length < 600 || "O anúncio não deve ter mais de 600 caracteres"
-    ]};
+        v => !!v.trim() || "Informe texto do anúncio",
+        v => v.length < 600 || "O texto não deve ter mais de 600 caracteres"
+      ]
+    };
   },
   methods: {
      doSave() {
       this.comentario.nomeNovoComentario = this.currentUser.displayName
       if (this.valid && this.currentUser != null) {
         db.ref("anuncios").child(this.userKey).child('/anuncio').child(this.idanuncioanimal).child("comentario").push(this.comentario)
-        this.comentario.novoComentario = ''
+        this.comentario.novoComentario = ''     
       }else{
         this.dialog = false
       }

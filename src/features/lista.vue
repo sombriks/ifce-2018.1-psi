@@ -12,9 +12,7 @@
                   <div>
                     <h3 class="headline mb-0 wrapAnuncio">{{anuncio.nomeanuncio}}</h3>
                     <div class="wrapAnuncio">{{anuncio.descricaoanuncio}}</div>
-                    <div>{{
-                      `(${anuncio.telefoneanuncio.split('')[0]}${anuncio.telefoneanuncio.split('')[1]}) ${anuncio.telefoneanuncio.split('')[2]} ${anuncio.telefoneanuncio.split('')[3]}${anuncio.telefoneanuncio.split('')[4]}${anuncio.telefoneanuncio.split('')[5]}${anuncio.telefoneanuncio.split('')[6]}-${anuncio.telefoneanuncio.split('')[7]}${anuncio.telefoneanuncio.split('')[8]}${anuncio.telefoneanuncio.split('')[9]}${anuncio.telefoneanuncio.split('')[10]}`
-                      }}</div>
+                    <div>{{`(${anuncio.telefoneanuncio.split('')[0]}${anuncio.telefoneanuncio.split('')[1]}) ${anuncio.telefoneanuncio.split('')[3]}${anuncio.telefoneanuncio.split('')[4]}${anuncio.telefoneanuncio.split('')[5]}${anuncio.telefoneanuncio.split('')[6]}-${anuncio.telefoneanuncio.split('')[7]}${anuncio.telefoneanuncio.split('')[8]}${anuncio.telefoneanuncio.split('')[9]}${anuncio.telefoneanuncio.split('')[10]}`}}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>
